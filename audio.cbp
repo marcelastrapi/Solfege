@@ -7,10 +7,7 @@
 		<Option compiler="gcc" />
 		<Option show_notes="0">
 			<notes>
-				<![CDATA[Faire une class Notes qui serait un vector de Note que l'on pourrais
-play stop add new note, randomize it, setTime...
-
-Faire string to note et note to string avec les octave en plus]]>
+				<![CDATA[Revoir la justesse des sinusoides !!]]>
 			</notes>
 		</Option>
 		<Build>
@@ -55,24 +52,24 @@ Faire string to note et note to string avec les octave en plus]]>
 		</Linker>
 		<Unit filename="include/Games.h" />
 		<Unit filename="include/Games/Game.h" />
-		<Unit filename="include/Games/IntervalGame.h" />
+		<Unit filename="include/Games/GameInterval.h" />
+		<Unit filename="include/Instrument.h" />
+		<Unit filename="include/Musicien.h" />
 		<Unit filename="include/Rnd.h" />
 		<Unit filename="include/Solfege.h" />
 		<Unit filename="include/Solfege/Chord.h" />
 		<Unit filename="include/Solfege/Interval.h" />
 		<Unit filename="include/Solfege/Note.h" />
-		<Unit filename="include/Solfege/Notes.h" />
 		<Unit filename="include/Solfege/Scale.h" />
-		<Unit filename="include/Sound.h" />
-		<Unit filename="include/Sound/MySound.h" />
-		<Unit filename="include/Sound/Sinusoide.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Games/Game.cpp" />
+		<Unit filename="src/Games/GameInterval.cpp" />
+		<Unit filename="src/Instrument.cpp" />
+		<Unit filename="src/Musicien.cpp" />
 		<Unit filename="src/Solfege/Chord.cpp" />
 		<Unit filename="src/Solfege/Interval.cpp" />
 		<Unit filename="src/Solfege/Note.cpp" />
 		<Unit filename="src/Solfege/Scale.cpp" />
-		<Unit filename="src/Sound/Sinusoide.cpp" />
-		<Unit filename="src/games/IntervalGame.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

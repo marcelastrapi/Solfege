@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Solfege.h>
-#include <Sound.h>
+#include "Solfege.h"
+#include "Instrument.h"
 
 
 /// \brief enum of way of the melodic interval
@@ -23,7 +23,7 @@ protected :
 
     sf::Time m_totalTime; ///< the addition of the reflection time of the gamer
 
-    Notes m_currentQuestion; ///< notes being played
+    Musicien m_currentQuestion; ///< notes being played
     sf::Clock m_clock;
 
     bool m_melodic;

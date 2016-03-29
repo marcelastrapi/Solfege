@@ -1,25 +1,19 @@
 #include "Solfege/Interval.h"
 
 //Ctor
-Interval::Interval(const std::string& strNote, int _octave, const IntervalName& interName) :
-    Notes(),
-    m_fondamental(Note(strNote,_octave)),
-    m_interName(interName) {
-
-    initialise();
-}
-Interval::Interval(const Note& fondamental, const IntervalName& interName) :
-    Notes(),
+Interval::Interval(const Note& fondamental, const IntervalName& interName, const sf::Time &time,const  InstrumentName instrument) :
+    Musicien(instrument),
     m_fondamental(fondamental),
-    m_interName(interName) {
+    m_interName(interName) ,
+    m_time(time) {
 
     initialise();
 }
 //private
 void Interval::initialise() {
 
-    this->add( m_fondamental );
-    this->add( m_fondamental + m_interName );
+    this->add( m_fondamental , m_time );
+    this->add( m_fondamental + m_interName , m_time);
 
 }
 

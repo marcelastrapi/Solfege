@@ -3,7 +3,7 @@
 #ifndef SCALE_H
 #define SCALE_H
 
-#include "Notes.h"
+#include "Musicien.h"
 
 //GAMMES
 enum Modes  {
@@ -18,19 +18,20 @@ enum Modes  {
     tondemiton,     ///< gamme diminué ton/demi-ton
     demitonton      ///< inverse tondemiton-ton/ton
 };
-class  Scale : public Notes {
+
+/// \brief specialized musician who only play Scale...
+class  Scale : public Musicien {
     //Variables
 private :
     Note m_fondamental;
     Modes m_mode;
+    sf::Time m_time;
 
     //Constructors
 public:
-    Scale( const Note &fondamental, const Modes &mode );
-    Scale (const std::string &noteName, int _octave, const Modes &mode );
+    Scale( const Note &fondamental, const Modes &mode , const sf::Time &time, const InstrumentName instrument = Sinusoide );
 private :
     void initialise();
-//Copy implicite inside Notes from std::vector
 
     //Getter
 public:

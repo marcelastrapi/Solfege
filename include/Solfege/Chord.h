@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Notes.h"
+#include "Musicien.h"
 //#include "iostream"
 
 //ACCORDS
@@ -37,16 +37,16 @@ enum ChordsNames {
     sus2,                  ///< Chord with 2 ajoutée = sus2
     sus4,                  ///< Chord with 4 ajoutée = sus4
 };
-class  Chord : public Notes {
+class  Chord : public Musicien {
     //Variables
 private :
     Note m_fondamental;
     ChordsNames m_chordName;
+    sf::Time m_time;
 
     //Constructors
 public :
-    Chord( const Note  &fondamental, const ChordsNames &chordName );
-    Chord( const std::string &strFondamental,int _octave , const ChordsNames &chordName );
+    Chord( const Note  &fondamental, const ChordsNames &chordName, const sf::Time &duree , const InstrumentName instrument = Sinusoide);
 private :
     void initialise();
 

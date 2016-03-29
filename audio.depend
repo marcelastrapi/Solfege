@@ -45,11 +45,11 @@
 	"Solfege.h"
 	"MySound.h"
 
-1459205920 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/main.cpp
+1459278404 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Solfege.h"
-	"Sound.h"
+	"Instrument.h"
 	"Games.h"
 	"Rnd.h"
 	<string>
@@ -97,9 +97,8 @@
 	<ctime>
 	<sys/time.h>
 
-1459165406 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege.h
+1459268365 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege.h
 	"Solfege/Note.h"
-	"Solfege/Notes.h"
 	"Solfege/Scale.h"
 	"Solfege/Chord.h"
 	"Solfege/Interval.h"
@@ -136,19 +135,19 @@
 	<vector>
 	"Rnd.h"
 
-1459205836 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Notes.h
+1459267712 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Notes.h
 	<SFML/Audio.hpp>
 	<vector>
 	<algorithm>
 	<memory>
 	"Note.h"
-	"../Sound/Sinusoide.h"
+	"Instrument.h"
 
-1459205815 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Scale.h
-	"Notes.h"
+1459278045 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Scale.h
+	"Musicien.h"
 
-1459172748 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Chord.h
-	"Notes.h"
+1459277833 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Chord.h
+	"Musicien.h"
 
 1459159185 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Sound.h
 	"Sound/MySound.h"
@@ -168,29 +167,29 @@
 	"Games/Game.h"
 	"Games/GameInterval.h"
 
-1459204114 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Games/Game.h
-	<Solfege.h>
-	<Sound.h>
+1459269529 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Games/Game.h
+	"Solfege.h"
+	"Instrument.h"
 
 1459180858 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Games/IntervalGame.h
 	"Game.h"
 
-1459178399 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Note.cpp
+1459271283 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Note.cpp
 	"Solfege/Note.h"
 
 1459160935 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Sound/Sinusoide.cpp
 	"Sound/Sinusoide.h"
 
-1459204737 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Interval.h
-	"Notes.h"
+1459277915 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Solfege/Interval.h
+	"Musicien.h"
 
-1459203042 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Chord.cpp
+1459278375 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Chord.cpp
 	<Solfege/Chord.h>
 
-1459204766 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Interval.cpp
+1459277955 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Interval.cpp
 	"Solfege/Interval.h"
 
-1459203088 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Scale.cpp
+1459278549 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Solfege/Scale.cpp
 	<Solfege/Scale.h>
 
 1459184030 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/games/GameInterval.cpp
@@ -206,4 +205,39 @@
 1459203333 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Games/GameInterval.cpp
 
 1404961864 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Games/Game.cpp
+
+1459267189 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Instruments/Sinusoide.h
+	<cmath>
+	<string>
+	"../Solfege/Note.h"
+	"Instrument.h"
+
+1459267466 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Instruments/Instrument.h
+	<SFML/Audio.hpp>
+	"../Solfege/Note.h"
+
+1459267268 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Instruments.h
+	"Instruments/Instrument.h"
+
+1459260823 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Instruments/Sinusoide.cpp
+	"Instruments/Sinusoide.h"
+
+1459271171 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Instrument.h
+	<SFML/Audio.hpp>
+	"Solfege/Note.h"
+	<cmath>
+
+1459271114 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Intrument.cpp
+	"Instrument.h"
+
+1459272751 /home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/include/Musicien.h
+	<SFML/System/Sleep.hpp>
+	"Note.h"
+	"Instrument.h"
+
+1459272099 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Musicien.cpp
+	"Musicien.h"
+
+1459271114 source:/home/astrapi/Documents/Programmation/c++/enCours/jeuOreille/src/Instrument.cpp
+	"Instrument.h"
 

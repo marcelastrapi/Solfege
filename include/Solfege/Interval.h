@@ -1,18 +1,18 @@
 #ifndef INTERVAL_H
 #define INTERVAL_H
 
-#include "Notes.h"
+#include "Musicien.h"
 
-class Interval : public Notes {
+class Interval : public Musicien {
     //Variables:
 private :
     Note m_fondamental;
     IntervalName m_interName;
+    sf::Time m_time;
 
     //Constructors
 public:
-    Interval( const Note &fondamental, const  IntervalName &interName );
-    Interval( const std::string &strNote, int _octave, const IntervalName &interName );
+    Interval( const Note &fondamental, const  IntervalName &interName, const sf::Time &time, InstrumentName instrument = Sinusoide );
 private:
     void initialise();
 

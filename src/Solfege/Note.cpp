@@ -33,7 +33,9 @@ Note::Note( const NoteName& nom, int oct ) :
     calculeFrequence();
 }
 Note::Note( std::string strNomNote, int oct ) :
-    m_nomNote( STRING_TO_NOMNOTE( strNomNote ) ), m_octave( oct ), m_frequence( 0 ) {
+    m_nomNote( STRING_TO_NOMNOTE( strNomNote ) ),
+    m_octave( oct ),
+    m_frequence( 0 ) {
     calculeFrequence();
 }
 Note::Note( double frequence ):
