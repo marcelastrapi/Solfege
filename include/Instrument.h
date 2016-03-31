@@ -1,3 +1,5 @@
+/*Produce Sounds*/
+
 #pragma once
 
 #include <SFML/Audio.hpp>
@@ -71,6 +73,7 @@ private :
     //Only for Sinusoide
     void fillArray();
     inline sf::Int32 getSamples() { return m_time.asSeconds()* SAMPLE_RATE; }
+
 
     //////////////////
     //Member Data

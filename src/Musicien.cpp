@@ -1,4 +1,8 @@
-#include "Musicien.h"
+#include <Musicien.h>
+#include <Rnd.h>
+#include <SFML/System/Sleep.hpp>
+#include <algorithm>
+#include <iterator>
 
 //Ctor
 Musicien::Musicien(InstrumentName instrumentName) :
@@ -8,12 +12,23 @@ Musicien::~Musicien() {
 
 }
 
+/**
+ * @brief Add note to my internal staff
+ * @param const Note& my note to add in my head
+ * @param Time the time of the note
+ */
 void Musicien::add(const Note& note, const sf::Time& timeOfNote) {
 
     m_notesToPlay.emplace_back( new Instrument( note , timeOfNote , m_instrumentName ) );
 
 }
+void Musicien::add(const std::vector<Note>& notes, const sf::Time &timeOfNotes) {
 
+    for ( const Note & note : notes) {
+        this->add(note,timeOfNotes);
+    }
+
+}
 void Musicien::play(bool melodic, bool downToUp) {
 
     if ( !downToUp ) std::reverse( m_notesToPlay.begin(), m_notesToPlay.end() );
@@ -41,11 +56,13 @@ Musicien& Musicien::randomize(unsigned short beginIndex) {
 }
 
 //Setter
-void Musicien::setInstrumentName(InstrumentName newInstrument) {
+void Musicien::setInstrumentName(const InstrumentName newInstrument) {
 
-    for (auto & son : m_notesToPlay) {
+    if (m_instrumentName != newInstrument) {
+        for (auto & son : m_notesToPlay) {
 
-        son->setInstrumentName(newInstrument);
+            son->setInstrumentName(newInstrument);
+        }
     }
 
 }

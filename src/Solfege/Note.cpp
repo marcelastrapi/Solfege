@@ -1,26 +1,22 @@
+#include <Solfege/Note.h>
+#include <vector>
+
 // -- fonction interne --
 //min
-template <typename T1, typename T2>
-auto min( const T1 &a, const T2 &b ) {
+inline double min( const double &a, const double &b ) {
     return a < b ? a : b;
 }
 //max
-template <typename T1, typename T2>
-auto max( const T1 &a, const T2 &b ) {
+inline double max( const double &a, const double &b ) {
     return a > b ? a : b;
 }
 //distance
-inline auto dist( auto a, auto b ) {
-
-
-
+inline double dist( double a, double b ) {
     return max( a, b ) - min( a, b );
 }
-#include "Solfege/Note.h"
 
 
-
-double Note::A4 = 442;
+double Note::A4 = 440;
 
 // ------ CONSTRUCTOR ------
 
@@ -32,7 +28,7 @@ Note::Note( const NoteName& nom, int oct ) :
     m_nomNote( nom.nomNote, nom.alteration ),   m_octave( oct ),   m_frequence( 0 ) {
     calculeFrequence();
 }
-Note::Note( std::string strNomNote, int oct ) :
+Note::Note( const std::string &strNomNote, int oct ) :
     m_nomNote( STRING_TO_NOMNOTE( strNomNote ) ),
     m_octave( oct ),
     m_frequence( 0 ) {
@@ -74,7 +70,7 @@ Note& Note::operator=( const Note& noteACopier ) {
     this->setNewNote( noteACopier );
     return *this;
 }
-Note& Note::operator+=( const IntervalName& interval2Add ) {
+Note& Note::operator+=( const Interval& interval2Add ) {
     short int nbDT = interval2Add.getNbDemiTons();
     short int numNote = NOTE_TO_INT( *this );
     numNote += nbDT;
@@ -84,7 +80,7 @@ Note& Note::operator+=( const IntervalName& interval2Add ) {
     this->setNewNote( INT_TO_NOTE( numNote, interval2Add.getNoteNameFromInterval( m_nomNote ) ) );
     return *this;
 }
-Note  Note::operator+(const IntervalName& interval2Add)const  {
+Note  Note::operator+(const Interval& interval2Add)const  {
     short int nbDT = interval2Add.getNbDemiTons();
     short int numNote = NOTE_TO_INT( *this );
     numNote += nbDT;
@@ -94,7 +90,7 @@ Note  Note::operator+(const IntervalName& interval2Add)const  {
     Note rep( INT_TO_NOTE( numNote, interval2Add.getNoteNameFromInterval( m_nomNote ) ) );
     return rep;
 }
-Note& Note::operator-=( const IntervalName& interval2Add ) {
+Note& Note::operator-=( const Interval& interval2Add ) {
     short int nbDT = interval2Add.getNbDemiTons();
     short int numNote = NOTE_TO_INT( *this );
     numNote -= nbDT;
@@ -105,7 +101,7 @@ Note& Note::operator-=( const IntervalName& interval2Add ) {
     this->setNewNote( INT_TO_NOTE( numNote, interval2Add.getNoteNameFromInterval( m_nomNote,false ) ) );
     return *this;
 }
-Note  Note::operator-(const IntervalName& interval2Add) const {
+Note  Note::operator-(const Interval& interval2Add) const {
     short int nbDT = interval2Add.getNbDemiTons();
     short int numNote = NOTE_TO_INT( *this );
     numNote -= nbDT;
@@ -116,7 +112,7 @@ Note  Note::operator-(const IntervalName& interval2Add) const {
     return rep;
 }
 
-Note& Note::addInterval(const IntervalName& interval2Add,bool montante, bool findTheBestNoteMyself) {
+Note& Note::addInterval(const Interval& interval2Add,bool montante, bool findTheBestNoteMyself) {
     short int nbDT = interval2Add.getNbDemiTons();
     short int numNote = NOTE_TO_INT( *this );
 
@@ -140,8 +136,9 @@ short int   Note::NB_DT_ENTRE_2_NOTES( const Note& noteA, const Note& noteB ) {
 short int   Note::NOTE_TO_INT( const Note& note ) {
 
     return static_cast<short int>( note.getNoteName().nomNote ) +
-           static_cast<short int>( note.getNoteName().alteration ) +
-           note.getOctave() * 12;
+            static_cast<short int>( note.getNoteName().alteration ) +
+            note.getOctave() * 12;
+
 }
 Note         Note::INT_TO_NOTE( const int numNote, const SimpleNotesNames notePrefere , const Alterations altPrefere ) {
     //Si le numéro est trop haut ou trop bas
@@ -292,7 +289,7 @@ std::string Note::NOTE_TO_STRING( const Note& note ) {
     }
     return noteStr;
 }
-NoteName Note::STRING_TO_NOMNOTE( std::string& _nomNote ) {
+NoteName     Note::STRING_TO_NOMNOTE( std::string _nomNote ) {
     NoteName rep;
     if ( !NOTATION_FRANCAISE ) {
         char nom = _nomNote[0];
@@ -371,7 +368,7 @@ NoteName Note::STRING_TO_NOMNOTE( std::string& _nomNote ) {
     }
     return rep;
 }
-Note     Note::FREQ_TO_NOTE( double frequence ) {
+Note         Note::FREQ_TO_NOTE( double frequence ) {
     //if (frequence < 20 || frequence > 30000) throw std::string("ERREUR :  Impossible d'entendre cette fréquence : " + std::to_string(frequence) );
     //On cherche la note qui à la frequence la plus proche des notes que j'utilise
     Note rep, note;

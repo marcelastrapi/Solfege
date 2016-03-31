@@ -1,4 +1,1 @@
-Programme qui un jour va etre bien... J'en suis sur !
-
-to do:
-Les jeux
+Programme pour travailler l'oreille par la connaissance des intervalles

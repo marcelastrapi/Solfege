@@ -10,7 +10,7 @@ class Rnd
 		static inline void randomize() {
 
             struct timeval t1;
-            gettimeofday(&t1, NULL);
+            gettimeofday(&t1, nullptr );
             srand(t1.tv_usec * t1.tv_sec);
 
 		}

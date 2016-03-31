@@ -1,9 +1,12 @@
+/*Produce Sounds*/
+
 #pragma once
 
-#include <SFML/System/Sleep.hpp>
-
-#include "Note.h"
-#include "Instrument.h"
+#include <Instrument.h>
+#include <SFML/System/Time.hpp>
+#include <Solfege/Note.h>
+#include <memory>
+#include <vector>
 
 
 /// \brief Class qui prend des notes et les joue avec l'instrument voulue
@@ -17,6 +20,7 @@ public :
     ~Musicien();
 
     void add(const Note &note, const sf::Time& timeOfNote = sf::seconds( 1 ) );
+    void add(const std::vector<Note>& notes, const sf::Time &timeOfNotes = sf::seconds( 1 ) );
 
     void play( bool melodic = true, bool downToUp = true);
 
@@ -31,7 +35,7 @@ public :
 
 
     //Setter
-    void setInstrumentName(InstrumentName newInstrument);
+    void setInstrumentName(const InstrumentName newInstrument);
 
 //Variable
 private :
