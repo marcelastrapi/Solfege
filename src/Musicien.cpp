@@ -1,28 +1,30 @@
 #include <Musicien.h>
-#include <Rnd.h>
-#include <SFML/System/Sleep.hpp>
-#include <algorithm>
-#include <iterator>
 
 //Ctor
-Musicien::Musicien(InstrumentName instrumentName) :
-    m_instrumentName(instrumentName)  { }
+Musicien::Musicien(Instrument instrument) :
+	m_instrument(instrument),
+	m_nbNotes(0)  { }
+
 //Dtor
 Musicien::~Musicien() {
 
+//	for ( Sound* son : m_notesToPlay) {
+//		delete son;
+//	}
 }
 
-/**
- * @brief Add note to my internal staff
- * @param const Note& my note to add in my head
- * @param Time the time of the note
- */
+
 void Musicien::add(const Note& note, const sf::Time& timeOfNote) {
 
-    m_notesToPlay.emplace_back( new Instrument( note , timeOfNote , m_instrumentName ) );
+	m_nbNotes++;
+	cout << "size : " << m_notesToPlay.size() << endl;
+	cout << "nbNotes : " << m_nbNotes << endl;
+    m_notesToPlay.push_back( Sound( note , timeOfNote , m_instrument ) );
 
 }
 void Musicien::add(const std::vector<Note>& notes, const sf::Time &timeOfNotes) {
+
+	cout << "size : " << m_notesToPlay.size() << endl;
 
     for ( const Note & note : notes) {
         this->add(note,timeOfNotes);
@@ -35,13 +37,22 @@ void Musicien::play(bool melodic, bool downToUp) {
 
     //Here we play the m_notesToPlayToPlay
     for ( auto  & son : m_notesToPlay ) {
-        son->play();
+        son.play();
         //Si mélodique alors on fait une pose après chaque note
-        if ( melodic ) sf::sleep( son->getTime() );
+        if ( melodic ) sf::sleep( son.getTime() );
     }
-    //Sinon après avoir lancé toutes les notes
-    if ( !melodic ) sf::sleep( m_notesToPlay.back()->getTime() );
+    //Sinon après avoir lancé toutes les notes (les notes sont donc considéré comme étant toute de time égale
+    if ( !melodic ) sf::sleep( m_notesToPlay.back().getTime() );
 
+}
+void Musicien::clear() {
+
+//	if ( m_nbNotes > 0 )
+//		for (auto son : m_notesToPlay)
+//			delete son;
+
+//	if ( ! m_notesToPlay.empty())
+//		m_notesToPlay.clear();
 }
 
 Musicien& Musicien::randomize(unsigned short beginIndex) {
@@ -56,12 +67,13 @@ Musicien& Musicien::randomize(unsigned short beginIndex) {
 }
 
 //Setter
-void Musicien::setInstrumentName(const InstrumentName newInstrument) {
+void Musicien::setInstrument(const Instrument newInstrument) {
 
-    if (m_instrumentName != newInstrument) {
+    if (m_instrument != newInstrument) {
         for (auto & son : m_notesToPlay) {
 
-            son->setInstrumentName(newInstrument);
+            son.setInstrument(newInstrument);
+
         }
     }
 

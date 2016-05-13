@@ -1,10 +1,10 @@
 #pragma once
 
-#include <ostream>
+#include <Rnd.h>
+#include <Solfege/NoteName.h>
+#include <iostream>
+#include <string>
 #include <vector>
-
-#include "NoteName.h"
-#include "../Rnd.h"
 
 //INTERVAL
 enum SimpleIntervalsNames  {

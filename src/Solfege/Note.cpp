@@ -1,4 +1,7 @@
+#include <Rnd.h>
 #include <Solfege/Note.h>
+#include <cmath>
+#include <iostream>
 #include <vector>
 
 // -- fonction interne --
@@ -140,7 +143,7 @@ short int   Note::NOTE_TO_INT( const Note& note ) {
             note.getOctave() * 12;
 
 }
-Note         Note::INT_TO_NOTE( const int numNote, const SimpleNotesNames notePrefere , const Alterations altPrefere ) {
+Note        Note::INT_TO_NOTE( const int numNote, const SimpleNotesNames notePrefere , const Alterations altPrefere ) {
     //Si le numéro est trop haut ou trop bas
     if ( numNote < 0 || numNote > 144 )   throw std::string( "ERREUR :  Note au-delà des limites ! numNote : " + std::to_string( numNote ) );
 
@@ -289,7 +292,7 @@ std::string Note::NOTE_TO_STRING( const Note& note ) {
     }
     return noteStr;
 }
-NoteName     Note::STRING_TO_NOMNOTE( std::string _nomNote ) {
+NoteName    Note::STRING_TO_NOMNOTE( std::string _nomNote ) {
     NoteName rep;
     if ( !NOTATION_FRANCAISE ) {
         char nom = _nomNote[0];
@@ -368,7 +371,7 @@ NoteName     Note::STRING_TO_NOMNOTE( std::string _nomNote ) {
     }
     return rep;
 }
-Note         Note::FREQ_TO_NOTE( double frequence ) {
+Note        Note::FREQ_TO_NOTE( double frequence ) {
     //if (frequence < 20 || frequence > 30000) throw std::string("ERREUR :  Impossible d'entendre cette fréquence : " + std::to_string(frequence) );
     //On cherche la note qui à la frequence la plus proche des notes que j'utilise
     Note rep, note;

@@ -1,16 +1,9 @@
-//#pragma once
-#ifndef NOTE_H
-#define NOTE_H
+#pragma once
 
 
-#include <iostream>
-#include <cmath>
+#include <Solfege/Interval.h>
+#include <Solfege/NoteName.h>
 #include <string>
-
-#include "NoteName.h"
-#include "Interval.h"
-
-#include "../Rnd.h"
 
 ///////////////////////
 //   LA CLASS NOTE   //
@@ -85,11 +78,11 @@ public:
 public :
     static short int NB_DT_ENTRE_2_NOTES( const Note& noteA, const Note& noteB ); //Unuse
     //Convertions
-    static short int NOTE_TO_INT( const Note& note );
-    static Note INT_TO_NOTE( const int numeroNote, const SimpleNotesNames notePrefere = UNKNOWN, const Alterations altPrefere = wtf );
-    static std::string NOTE_TO_STRING( const Note& noteQuiVaDevenirUnString );
-    static NoteName STRING_TO_NOMNOTE( std::string nomNote );
-    static Note FREQ_TO_NOTE( double frequence );
+    static short int 	NOTE_TO_INT( const Note& note );
+    static Note 		INT_TO_NOTE( const int numeroNote, const SimpleNotesNames notePrefere = UNKNOWN, const Alterations altPrefere = wtf );
+    static std::string 	NOTE_TO_STRING( const Note& noteQuiVaDevenirUnString );
+    static NoteName 	STRING_TO_NOMNOTE( std::string nomNote );
+    static Note 		FREQ_TO_NOTE( double frequence );
     /// \return random Note between Uint a and Uint b
     static Note RND_NOTE( unsigned short a, unsigned short b );
     /// \return random Note between minNote and maxNote
@@ -108,6 +101,3 @@ private :
 
 
 };
-
-
-#endif // NOTE_H
